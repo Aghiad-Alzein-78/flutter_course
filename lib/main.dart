@@ -1,6 +1,5 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,6 +16,194 @@ class MyApp extends StatelessWidget {
 }
 
 class Test extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Container(
+          child: IndexedStack(
+            index: 2,
+            children: [
+              Container(color: Colors.amber),
+              Container(color: Colors.red),
+              Container(color: Colors.blue)
+            ],
+          ),
+        ));
+  }
+}
+
+class Example1 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Container(
+          alignment: Alignment.center,
+          padding: EdgeInsets.only(left: 30, right: 30),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            // crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                width: double.infinity,
+                padding:
+                    EdgeInsets.only(left: 25, right: 25, top: 8, bottom: 8),
+                decoration: BoxDecoration(
+                    color: Colors.blue,
+                    border: Border.all(color: Colors.black45, width: 2)),
+                child: Text(
+                  "Strawberry Pavlova Recipe",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+              Container(
+                  padding: EdgeInsets.all(10),
+                  child: Text(
+                    'Pavlova is a meringue-based dessert named after the Russian ballerina '
+                    'Anna Pavlova. Pavlova features a crisp crust and soft, light inside, '
+                    'topped with fruit and whipped cream.',
+                    style: TextStyle(fontSize: 17, height: 1.5),
+                    textAlign: TextAlign.center,
+                  )),
+              Container(
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.black45)),
+                  child: Column(
+                    children: [
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.amber,
+                                ),
+                                Icon(Icons.star, color: Colors.amber),
+                                Icon(Icons.star, color: Colors.amber),
+                                Icon(Icons.star),
+                                Icon(Icons.star),
+                              ],
+                            ),
+                            Row(
+                              children: [Text("17 review")],
+                            )
+                          ],
+                        ),
+                      ),
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Column(
+                              children: [
+                                Icon(Icons.restaurant, color: Colors.green),
+                                Text("Feed"),
+                                Text("2-4")
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Icon(Icons.coffee, color: Colors.green),
+                                Text("Feed"),
+                                Text("2-4")
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Icon(Icons.restaurant_menu,
+                                    color: Colors.green),
+                                Text("Feed"),
+                                Text("2-4")
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    ],
+                  ))
+            ],
+          ),
+        ));
+  }
+}
+
+class DividerOrVerticalDivider extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Row(
+          children: [
+            Text("Text one", style: TextStyle(fontSize: 20)),
+            VerticalDivider(
+              color: Colors.brown,
+              thickness: 2,
+              // height: 30,
+              width: 20,
+            ),
+            Text("Text Two", style: TextStyle(fontSize: 20))
+          ],
+        ));
+  }
+}
+
+class IconsLesson extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Icon(
+          Icons.trending_up,
+          size: 50,
+          color: Colors.amber,
+        ));
+  }
+}
+
+class ColmWithExpanded extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(),
+        drawer: Drawer(),
+        body: Column(
+          children: [
+            Expanded(
+                flex: 1,
+                child: Container(
+                    child: Text("one", style: TextStyle(fontSize: 40)),
+                    color: Colors.red,
+                    width: double.infinity)),
+            Expanded(
+                flex: 1,
+                child: Container(
+                    child: Text("two", style: TextStyle(fontSize: 40)),
+                    color: Colors.green,
+                    width: double.infinity)),
+            Expanded(
+                flex: 1,
+                child: Container(
+                    child: Text("three", style: TextStyle(fontSize: 40)),
+                    color: Colors.blue,
+                    width: double.infinity)),
+          ],
+        ));
+  }
+}
+
+class ExpandedWithRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
